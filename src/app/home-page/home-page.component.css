@@ -1,0 +1,36 @@
+h1,
+h2 {
+  text-align: center;
+  color: #0056b3;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 500;
+  padding-top: 25px;
+}
+
+.cred {
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cred-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cred-item img {
+  margin-right: 10px;
+}
+
+span {
+  color: rgb(52, 39, 39);
+  font-size: 27px;
+}
+
+span a {
+  text-decoration: none;
+  color: #0056b3;
+  font-weight: 500;
+}

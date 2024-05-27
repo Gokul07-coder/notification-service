@@ -1,0 +1,26 @@
+<p id="top-header">
+  Create an account and enjoy the live updates of the match
+</p>
+<div id="login-box">
+  <h2>Login</h2>
+  <label for="phone-number">Phone Number</label>
+  <input
+    type="text"
+    id="phone-num"
+    name="phone-number"
+    [(ngModel)]="phoneNumber"
+    required
+    style="overflow: hidden"
+  />
+  <br />
+  <label for="password">password</label>
+  <input
+    type="password"
+    id="pass"
+    name="password"
+    [(ngModel)]="password"
+    required
+  />
+  <br />
+  <button (click)="login()">Login</button>
+</div>
