@@ -1,5 +1,5 @@
 <p id="top-header">
-  Create an account and enjoy the live updates of the match
+  Login into account and enjoy the live updates of the ongoing match
 </p>
 <div id="login-box">
   <h2>Login</h2>
@@ -9,18 +9,32 @@
     id="phone-num"
     name="phone-number"
     [(ngModel)]="phoneNumber"
+    (ngModelChange)="checkNumber($event)"
     required
     style="overflow: hidden"
   />
+  <div *ngIf="!isNumberValid" style="color: red; background-color: white">
+    Please enter a valid number.
+  </div>
   <br />
-  <label for="password">password</label>
+  <label for="password">Password</label>
   <input
     type="password"
     id="pass"
     name="password"
     [(ngModel)]="password"
+    (ngModelChange)="checkPassword($event)"
     required
   />
+  <div *ngIf="!isPasswordValid" style="color: red; background-color: white">
+    Please enter a valid Password.
+  </div>
   <br />
-  <button (click)="login()">Login</button>
+  <button (click)="login()">LOGIN</button>
+  <div *ngIf="isError" class="errorMessage" style="color: red; background-color: white">
+    {{ errorMessage }}
+  </div>
+  <span id="register-box">
+    Not registered yet? <a [routerLink]="['/signup']"> Register </a></span
+  >
 </div>

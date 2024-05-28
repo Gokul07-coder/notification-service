@@ -1,1 +1,91 @@
-<p>signup works!</p>
+<p id="top-header">
+  Create an account and enjoy the live updates of the ongoing match
+</p>
+<div id="signup-box">
+  <h2>Signup</h2>
+  <label for="name">Name</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    [(ngModel)]="userName"
+    (ngModelChange)="checkName($event)"
+    required
+  />
+  <div *ngIf="!isNameValid" style="color: red; background-color: white">
+    Please enter a valid name.
+  </div>
+  <br />
+  <label for="phone-number">Phone Number</label>
+  <input
+    type="text"
+    id="phone-num"
+    name="phone-number"
+    [(ngModel)]="phoneNumber"
+    (ngModelChange)="checkNumber($event)"
+    required
+    style="overflow: hidden"
+  />
+  <div *ngIf="!isNumberValid" style="color: red; background-color: white">
+    Please enter a valid number.
+  </div>
+  <br />
+  <label for="password">Password</label>
+  <input
+    type="password"
+    id="pass"
+    name="password"
+    [(ngModel)]="password"
+    (ngModelChange)="checkPassword($event)"
+    required
+  />
+  <div *ngIf="!isPasswordValid" style="color: red; background-color: white">
+    Please enter a valid Password.
+  </div>
+  <br />
+  <label for="password">Confirm Password</label>
+  <input
+    type="password"
+    id="pass"
+    name="password"
+    [(ngModel)]="confirmPassword"
+    (ngModelChange)="checkConfirmPassword($event)"
+    required
+  />
+  <div
+    *ngIf="!isConfirmPasswordValid"
+    style="color: red; background-color: white"
+  >
+    Passwords do not match
+  </div>
+
+  <button
+    id="signup-button"
+    [disabled]="
+      !isNameValid ||
+      !isNumberValid ||
+      !isPasswordValid ||
+      !isConfirmPasswordValid
+    "
+    (click)="signup()"
+    style="padding-bottom: 10px"
+  >
+    SIGNUP
+  </button>
+
+  <div
+    *ngIf="isError"
+    class="errorMessage"
+    style="color: red; background-color: white"
+  >
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="apiSuccess" style="color: green;" class="successMessage">
+    Account created Successfully
+    <span> redirecting in 5 seconds ... please login and confirm</span>
+  </div>
+
+  <span id="register-box">
+    Already registered? <a [routerLink]="['/login']"> Login </a></span
+  >
+</div>
